@@ -1,5 +1,9 @@
 # docker-s3-proxy
 
+---
+
+this is a docker image of [4front/s3-proxy](https://github.com/4front/s3-proxy)
+
 ## How to use this docker container
 
 ### Run it!
