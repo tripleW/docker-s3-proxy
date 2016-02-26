@@ -8,4 +8,4 @@ RUN mkdir -p /data
 
 EXPOSE 4567
 
-CMD ["s3rver -d /data"]
+CMD ["s3rver -d /data /s3-proxy.js"]
