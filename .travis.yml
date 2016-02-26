@@ -8,8 +8,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t triplew/dynalite ./
+  - docker build -t triplew/s3-proxy ./
 
 script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
-  - docker push triplew/dynalite
+  - docker push triplew/s3-proxy
