@@ -1,8 +1,8 @@
-# docker-s3-proxy
+# docker-s3rver
 
 ---
 
-this is a docker image of [4front/s3-proxy](https://github.com/4front/s3-proxy)
+this is a docker image of [jamhall/s3rver](https://github.com/jamhall/s3rver)
 
 ## How to use this docker container
 
@@ -11,7 +11,7 @@ this is a docker image of [4front/s3-proxy](https://github.com/4front/s3-proxy)
 you can run a container like below.
 
 ```bash
-docker run -d -p 4567:4567 triplew/s3-proxy
+docker run -d -p 4567:4567 triplew/s3rver
 ```
 
 ### Usage
