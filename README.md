@@ -21,7 +21,7 @@ docker run -d -p 4567:4567 triplew/s3rver
 echo 'hello' >> hello.txt
 
 # create a bucket
-curl -XPUT localhost:3002/hoge
+curl -XPUT localhost:4567/hoge
 
 # upload the file to the bucket
 curl -XPUT -T hello.txt localhost:4567/hoge/
