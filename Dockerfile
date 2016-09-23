@@ -2,14 +2,17 @@ FROM node:argon
 
 RUN npm install -g s3-proxy s3rver
 
-ENV DIR_PATH /data
-RUN mkdir -p $DIR_PATH
-VOLUME $DIR_PATH
+ENV APP_DIR_PATH=/usr/local/lib/node_modules \
+    DATA_DIR_PATH=/data \
+    S3_PORT=4568 \
+    S3_HOSTNAME=0.0.0.0
 
-ENV S3_PORT 4567
+COPY ./lib/app.js $APP_DIR_PATH
 
-ENV S3_HOSTNAME localhost
+VOLUME $DATA_DIR_PATH
 
 EXPOSE $S3_PORT
 
-CMD ["s3rver", "-d", "$DIR_PATH", "-p", "$S3_PORT", "-h", "S3_HOSTNAME"]
+WORKDIR $APP_DIR_PATH
+
+CMD ["node", "app.js"]
