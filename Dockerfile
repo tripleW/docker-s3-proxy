@@ -1,10 +1,15 @@
-FROM node
+FROM node:argon
 
-RUN npm install -g s3-proxy
-RUN npm install -g s3rver
+RUN npm install -g s3-proxy s3rver
 
-RUN mkdir -p /data
+ENV DIR_PATH /data
+RUN mkdir -p $DIR_PATH
+VOLUME $DIR_PATH
 
-EXPOSE 4567
+ENV S3_PORT 4567
 
-CMD ["s3rver", "-d", "/data", "-p", "4567", "-h", "0.0.0.0"]
+ENV S3_HOSTNAME localhost
+
+EXPOSE $S3_PORT
+
+CMD ["s3rver", "-d", "$DIR_PATH", "-p", "$S3_PORT", "-h", "S3_HOSTNAME"]
